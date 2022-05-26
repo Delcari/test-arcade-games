@@ -48,7 +48,7 @@ done < $file
 #print propertyDictionary keys and values
 echo "Occurrences of keys in config.txt file:"
 for key in "${!propertyDict[@]}"; do
-	# echo "$key: ${propertyDict[$key]}"
+	echo "$key: ${propertyDict[$key]}"
 	# If value is equal to one
 	if [ ${propertyDict[$key]} != 1 ]; then
 		errorList+=("Key: ${key}, invalid number of occurences, ${propertyDict[$key]}")
@@ -60,9 +60,9 @@ echo ""
 echo "Checking if image and executable paths are valid:"
 # Checking if image and executable paths are valid
 if [ -f $basePath$imagePath ]; then
-	# echo "Image file exists"
+	echo "Image file exists"
 else
-	# echo "Image file does not exist"
+	echo "Image file does not exist"
 	errorList+=("Config: Image file does not exist")
 fi
 
