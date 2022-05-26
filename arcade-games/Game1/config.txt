@@ -20,7 +20,7 @@ repository=https://github.com/thoth-tech/arcade-games
 language=C#
 
 # Path to your game thumbnail image (eg. images/icon.png)
-image=images/i2con.png
+image=images/icon.png
 
 # The title of your game (eg. Super Mario)
 title= Game Two
@@ -36,4 +36,4 @@ rating=PG
 author=Jane Doe
 
 # Path to the executable (game.exe)
-executable=game2.exe
+executable=game1.exe
