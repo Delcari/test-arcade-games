@@ -1,7 +1,8 @@
-name: Validate Game
+name: ValidateGame
 
 on:
-  pull-request: 
+  pull_request:
+    branches: [ main ]
 
 jobs: 
   validate-game: 
