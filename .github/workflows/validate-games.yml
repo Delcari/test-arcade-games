@@ -15,4 +15,5 @@ jobs:
           do
             echo "Validating ${game}"
             ./config-test.sh ${game}/config.txt
+            echo
           done
