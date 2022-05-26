@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Stores the error messages
 errorList=()
 # The file to be tested
@@ -81,4 +80,5 @@ fi
 	for error in "${errorList[@]}"; do
 		echo $error
 	done
+	exit 1
  fi
