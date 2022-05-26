@@ -13,8 +13,7 @@ jobs:
         run: |
           set -e
           for game in "$GITHUB_WORKSPACE/arcade-games/"*
-          echo "Validating ${game}"
           do
+            echo "Validating ${game}"
             ./config-test.sh ${game}/config.txt
-            echo
           done
