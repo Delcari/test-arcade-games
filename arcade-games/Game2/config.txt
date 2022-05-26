@@ -35,4 +35,4 @@ rating=PG
 author=Jane Doe
 
 # Path to the executable (game.exe)
-executable=game2.exe
+executable=fail.exe
