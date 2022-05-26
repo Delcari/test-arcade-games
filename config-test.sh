@@ -51,7 +51,7 @@ for key in "${!propertyDict[@]}"; do
 	echo "$key: ${propertyDict[$key]}"
 	# If value is equal to one
 	if [ ${propertyDict[$key]} != 1 ]; then
-		errorList+=("Key: ${key}, invalid number of occurences")
+		errorList+=("Key: ${key}, invalid number of occurences, ${propertyDict[$key]}")
 	fi
 done
 
