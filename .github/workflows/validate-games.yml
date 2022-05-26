@@ -11,6 +11,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: validate-config
         run: |
-          ls
           set -e
-          ./config-test.sh $GITHUB_WORKSPACE/arcade-games/Game2/config.txt
+          for game in "$GITHUB_WORKSPACE/arcade-games/"*
+          echo "Validating ${game}"
+          do
+            ./config-test.sh ${game}/config.txt
+            echo
+          done
