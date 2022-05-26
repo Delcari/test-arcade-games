@@ -12,4 +12,5 @@ jobs:
       - name: validate-config
         run: |
           ls
+          set -e
           ./config-test.sh $GITHUB_WORKSPACE/arcade-games/Game2/config.txt
