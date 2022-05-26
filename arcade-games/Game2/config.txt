@@ -23,7 +23,7 @@ language=C#
 image=images/icon.png
 
 # The title of your game (eg. Super Mario)
-title=Game Two
+title=Game Twoe
 
 # The genre of your game (eg. Platformer)
 genre=Tile Based
