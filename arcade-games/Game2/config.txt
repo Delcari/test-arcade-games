@@ -17,13 +17,13 @@
 repository=https://github.com/thoth-tech/arcade-games
 
 # Programmnig language the game is written in (eg. C++) 
-languages=C#
+language=C#
 
 # Path to your game thumbnail image (eg. images/icon.png)
 image=images/icon.png
 
 # The title of your game (eg. Super Mario)
-title=Game Twoe
+title=Game Two
 
 # The genre of your game (eg. Platformer)
 genre=Tile Based
