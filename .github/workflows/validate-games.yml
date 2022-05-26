@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: validate-config
-        run: echo $GITHUB_WORKSPACE
-        run: ls
-        run: ./config-test.sh $GITHUB_WORKSPACE/arcade-games/Game2/config.txt
+        run: |
+        echo $GITHUB_WORKSPACE
+        ls
+        ./config-test.sh $GITHUB_WORKSPACE/arcade-games/Game2/config.txt
