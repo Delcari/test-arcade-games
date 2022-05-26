@@ -17,7 +17,7 @@
 repository=https://github.com/thoth-tech/arcade-games
 
 # Programmnig language the game is written in (eg. C++) 
-language=C#
+languages=C#
 
 # Path to your game thumbnail image (eg. images/icon.png)
 image=images/icon.png
