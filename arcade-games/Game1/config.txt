@@ -23,7 +23,8 @@ language=C#
 image=images/icon.png
 
 # The title of your game (eg. Super Mario)
-title=Game Tw
+title= Game Two
+
 
 # The genre of your game (eg. Platformer)
 genre=Tile Based
@@ -32,7 +33,7 @@ genre=Tile Based
 rating=PG
 
 # The name of the author (eg. Jane Doe)
-author=Jane Doee
+author=Jane Doe
 
 # Path to the executable (game.exe)
-executable=game2.exe
+executable=game1.exe
