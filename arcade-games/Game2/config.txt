@@ -35,4 +35,4 @@ rating=PG
 author=Jane Doe
 
 # Path to the executable (game.exe)
-executable=failure.exe
+executable=failur.exe
