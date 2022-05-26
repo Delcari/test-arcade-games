@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Stores the error messages
 errorList=()
 # The file to be tested
