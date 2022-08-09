@@ -1,6 +1,5 @@
 name: Compile Games
-on: 
-  repository-dispatch:
+on: [repository_dispatch]
 
 jobs:
   install-splashkit:
