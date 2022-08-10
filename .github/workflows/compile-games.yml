@@ -13,6 +13,6 @@ jobs:
       - name: Add splashkit to path
         run: echo "$HOME/.splashkit" >> $GITHUB_PATH
       - name: Check if splashkit is installed
-        run: skm
+        run: skm help
 
 
