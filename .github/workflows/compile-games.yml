@@ -14,6 +14,11 @@ jobs:
         run: echo "$HOME/.splashkit" >> $GITHUB_PATH
       - name: Install dependencies, compile splashkit
         run: skm linux install
+      - uses: actions/checkout@v3
+        name: "branch"
+        run: echo "$GITHUB_REF"
+        # with:
+        #   ref: my-branch
         
 
 
