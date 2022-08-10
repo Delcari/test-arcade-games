@@ -12,7 +12,8 @@ jobs:
       # after install splashkit step check if it is installed
       - name: Add splashkit to path
         run: echo "$HOME/.splashkit" >> $GITHUB_PATH
-      - name: Check if splashkit is installed
-        run: skm help
+      - name: Install dependencies, compile splashkit
+        run: skm linux install
+        
 
 
