@@ -28,7 +28,7 @@ jobs:
           echo "$GITHUB_HEAD_REF"
           cd $GITHUB_WORKSPACE
           ls
-          git diff master...feature/compile-games --diff-filter=A --name-only games/
+          git diff origin/master...feature/compile-games --diff-filter=A --name-only games/
 
   # with:.
     # cd $GITHUB_WORKSPACE
