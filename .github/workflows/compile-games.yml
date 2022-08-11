@@ -11,8 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+        # with:
+        #   ref: ${{ github.event.pull_request.head.sha }}
       - name: Install SplashKit
         run: | 
           bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
@@ -24,13 +24,13 @@ jobs:
       - name: "branch"
         run: |
           cd $GITHUB_WORKSPACE
-          ls
           echo "$GITHUB_REF"
-          git branch --show-current
+          git branch -a
           echo "test"
   # with:.
   #   ref: my-branch
         
+          # git branch --show-current
 
 # git diff ecb3d6d47b5ceb785e1b8cd2826a69457a7259d9 --diff-filter=A --name-only games/
 # git diff master...feature/compile-games --diff-filter=A --name-only games/
