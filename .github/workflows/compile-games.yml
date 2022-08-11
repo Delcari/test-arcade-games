@@ -25,6 +25,7 @@ jobs:
       - name: "Find added games"
         run: |
           echo "$GITHUB_HEAD_REF"
+          cd $GITHUB_WORKSPACE
           git diff master...${GITHUB_HEAD_REF} --diff-filter=A --name-only games/
 
   # with:.
