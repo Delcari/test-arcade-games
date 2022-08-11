@@ -26,6 +26,7 @@ jobs:
         run: |
           echo "$GITHUB_HEAD_REF"
           cd $GITHUB_WORKSPACE
+          ls
           git diff master...${GITHUB_HEAD_REF} --diff-filter=A --name-only games/
 
   # with:.
