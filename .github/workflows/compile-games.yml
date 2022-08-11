@@ -23,8 +23,8 @@ jobs:
         run: |
           echo "$GITHUB_REF"
           echo "$GITUB_BASE_REF"
-          echo ""
-  # with:
+          echo "test"
+  # with:.
   #   ref: my-branch
         
 
