@@ -22,7 +22,7 @@ jobs:
       - name: "branch"
         run: |
           echo "$GITHUB_REF"
-          echo "$GITUB_BASE_REF"
+          git rev-parse --abbrev-ref HEAD
           echo "test"
   # with:.
   #   ref: my-branch
