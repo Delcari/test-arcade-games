@@ -23,6 +23,8 @@ jobs:
         run: skm linux install
       - name: "branch"
         run: |
+          cd $GITHUB_WORKSPACE
+          ls
           echo "$GITHUB_REF"
           git branch --show-current
           echo "test"
