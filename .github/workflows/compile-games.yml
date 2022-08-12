@@ -32,7 +32,16 @@ jobs:
       - name: Compile Game
         run: | 
           cd $GITHUB_WORKSPACE/$GAME_DIR
+          echo Compiling game...
           skm g++ program.cpp -o game
+      - name: Update Repo
+        run: |   
+          cd $GITHUB_WORKSPACE
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add $GAME_DIR
+          git commit -m "compiled game"
+          git push
 
 #feature branch name "$GITHUB_HEAD_REF"
 
