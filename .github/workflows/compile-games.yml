@@ -21,8 +21,7 @@ jobs:
       - name: Add splashkit to path
         run: echo "$HOME/.splashkit" >> $GITHUB_PATH
       - name: Install dependencies, compile splashkit
-        run: ls
-        # run: skm linux install
+        run: skm linux install
       - name: Find added game
         run: |
           cd $GITHUB_WORKSPACE
@@ -31,6 +30,7 @@ jobs:
       - name: Compile Game
         run: | 
           cd $DIR
+          ls
           skm g++ program.cpp -o game
 
 #feature branch name "$GITHUB_HEAD_REF"
