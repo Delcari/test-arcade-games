@@ -41,7 +41,7 @@ jobs:
           git config user.email github-actions@github.com
           git add $GAME_DIR
           git commit -m "compiled game"
-          git push
+          git push origin HEAD:${GITHUB_HEAD_REF}
 
 #feature branch name "$GITHUB_HEAD_REF"
 
