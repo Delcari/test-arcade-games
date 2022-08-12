@@ -30,7 +30,7 @@ jobs:
           echo Branch: $GITHUB_HEAD_REF, Game Location: $GAME_DIR
           cd $GITHUB_WORKSPACE/$GAME_DIR
           echo Compiling game...
-          skm clang++ program.cpp
+          skm clang++ program.cpp -o attempt33
           cd $GITHUB_WORKSPACE
           git config user.name github-actions
           git config user.email github-actions@github.com
