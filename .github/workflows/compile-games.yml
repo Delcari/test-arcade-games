@@ -8,7 +8,8 @@ on:
 jobs:
   install-splashkit:
     runs-on: ubuntu-latest
-
+    env:
+      GAME_DIR: 
     steps:
       - name: Checkout feature branch
         uses: actions/checkout@v3
@@ -26,12 +27,12 @@ jobs:
       - name: Find added game
         run: |
           cd $GITHUB_WORKSPACE
-          DIR=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat --diff-filter=AM games/ | sed 's/^[ 0-9.]\+% //g')
+          GAME_DIR=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat --diff-filter=AM games/ | sed 's/^[ 0-9.]\+% //g')
           echo Branch: $GITHUB_HEAD_REF, Game Location: $DIR
       - name: Compile Game
         run: | 
-          echo $GITHUB_WORKSPACE/$DIR
-          echo $DIR
+          echo $GITHUB_WORKSPACE/$GAME_DIR
+          echo $GAME_DIR
           pwd
           ls
           skm g++ program.cpp -o game
