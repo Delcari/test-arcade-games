@@ -27,7 +27,6 @@ jobs:
           cd $GITHUB_WORKSPACE
           GAME_DIR=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat --diff-filter=AM games/ | sed 's/^[ 0-9.]\+% //g')
           echo Branch: $GITHUB_HEAD_REF, Game Location: $GAME_DIR
-          echo "::set-env name=GAME_DIR::$GAME_DIR"
       - name: Compile Game
         run: | 
           echo $GITHUB_WORKSPACE/$GAME_DIR
