@@ -9,7 +9,7 @@ jobs:
   install-splashkit:
     runs-on: ubuntu-latest
     env:
-      WORK_DIR: /test/
+      GAME_DIR: 
     steps:
       - name: Checkout feature branch
         uses: actions/checkout@v3
@@ -22,18 +22,16 @@ jobs:
       - name: Add splashkit to path
         run: echo "$HOME/.splashkit" >> $GITHUB_PATH
       - name: Install dependencies, compile splashkit
-        run: ls
-        # run: skm linux install
+        run: skm linux install
       - name: Find added game
         run: |
           cd $GITHUB_WORKSPACE
           GAME_DIR=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat --diff-filter=AM games/ | sed 's/^[ 0-9.]\+% //g')
-          echo $WORK_DIR
-          echo "WORK_DIR=$GAME_DIR" >> $GITHUB_ENV
+          echo "GAME_DIR=$GAME_DIR" >> $GITHUB_ENV
           echo Branch: $GITHUB_HEAD_REF, Game Location: $GAME_DIR
       - name: Compile Game
         run: | 
-          cd $GITHUB_WORKSPACE/$WORK_DIR
+          cd $GITHUB_WORKSPACE/$GAME_DIR
           skm g++ program.cpp -o game
 
 #feature branch name "$GITHUB_HEAD_REF"
