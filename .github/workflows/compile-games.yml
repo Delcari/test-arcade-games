@@ -29,7 +29,7 @@ jobs:
           echo Branch: $GITHUB_HEAD_REF, Game Location: $DIR
       - name: Compile Game
         run: | 
-          cd $DIR
+          cd $GITHUB_WORKSPACE/$DIR
           ls
           skm g++ program.cpp -o game
 
