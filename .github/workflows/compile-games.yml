@@ -42,6 +42,7 @@ jobs:
           git add $GAME_DIR
           git commit -m "compiled game"
           git push origin HEAD:${GITHUB_HEAD_REF}
+          echo done
 
 #feature branch name "$GITHUB_HEAD_REF"
 
