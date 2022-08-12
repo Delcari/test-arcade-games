@@ -31,6 +31,7 @@ jobs:
       - name: Compile Game
         run: | 
           echo $GITHUB_WORKSPACE/$DIR
+          echo $DIR
           pwd
           ls
           skm g++ program.cpp -o game
