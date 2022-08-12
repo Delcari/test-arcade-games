@@ -22,13 +22,14 @@ jobs:
       - name: Install dependencies, compile splashkit
         run: ls
         # run: skm linux install
-      - name: "Find added games"
+      - name: "Find added game"
         run: |
-          echo "$GITHUB_HEAD_REF"
           cd $GITHUB_WORKSPACE
-          ls
-          DIR=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat --diff-filter=A games/ | sed 's/^[ 0-9.]\+% //g')
-          echo $DIR
+          DIR=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat --diff-filter=AM games/ | sed 's/^[ 0-9.]\+% //g')
+          echo Branch: $GITHUB_HEAD_REF, Game Location: $DIR
+
+#feature branch name "$GITHUB_HEAD_REF"
+
 
   # with:.
     # cd $GITHUB_WORKSPACE
