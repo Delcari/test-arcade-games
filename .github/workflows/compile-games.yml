@@ -33,7 +33,7 @@ jobs:
         run: | 
           cd $GITHUB_WORKSPACE/$GAME_DIR
           echo Compiling game...
-          skm clang++ program.cpp -o newgame
+          skm clang++ program.cpp
       - name: Update Repo
         run: |   
           cd $GITHUB_WORKSPACE
