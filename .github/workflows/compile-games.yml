@@ -2,8 +2,8 @@ name: Compile Games
 on: 
   repository_dispatch:
   pull_request: 
-      branches: [ master ] 
       types: [ edited, labeled, unlabeled ] 
+      branches: [ master ] 
 
 
 jobs:
