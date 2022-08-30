@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-  install-splashkit:
+  Compile-Game(Linux):
     runs-on: ubuntu-latest
     env:
       GAME_DIR: 
@@ -34,7 +34,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/$GAME_DIR
           echo Compiling game...
-          skm clang++ program.cpp -o testingitagainee
+          skm clang++ program.cpp -o game
       - name: Update Repo
         run: |
           cd $GITHUB_WORKSPACE
@@ -44,4 +44,3 @@ jobs:
           git commit -m "Compile(Linux): $GAME_DIR"
           git push origin HEAD:${GITHUB_HEAD_REF}
           echo done
-          $GAME_DIR=$(basename $GAME_DIR)
