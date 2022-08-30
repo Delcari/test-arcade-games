@@ -3,10 +3,7 @@ on:
   repository_dispatch:
   pull_request: 
       branches: [ master ] 
-      types: 
-       - labeled
-       - unlabeled
-       - edited
+      types: [ edited, labeled, unlabeled ] 
 
 
 jobs:
