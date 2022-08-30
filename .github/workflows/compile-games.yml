@@ -33,7 +33,9 @@ jobs:
           GAME_DIR=(`echo ${GAME_DIR}`)
           echo "GAME_DIR=$GAME_DIR" >> $GITHUB_ENV
           for game in "${GAME_DIR[@]}"
+          do
             echo Branch: $GITHUB_HEAD_REF, Game Location: $game
+          done
       - name: Compile Game
         run: |
           cd $GITHUB_WORKSPACE/$GAME_DIR
