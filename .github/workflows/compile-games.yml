@@ -24,13 +24,16 @@ jobs:
         run: echo "$HOME/.splashkit" >> $GITHUB_PATH
       - name: Install dependencies, compile splashkit
         run: |
-          skm linux install
+          echo test
+          # skm linux install
       - name: Find added game
         run: |
           cd $GITHUB_WORKSPACE
           GAME_DIR=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat --diff-filter=AM games/ | sed 's/^[ 0-9.]\+% //g')
+          GAME_DIR=(`echo ${GAME_DIR}`)
           echo "GAME_DIR=$GAME_DIR" >> $GITHUB_ENV
-          echo Branch: $GITHUB_HEAD_REF, Game Location: $GAME_DIR
+          for game in "${GAME_DIR[@]}"
+            echo Branch: $GITHUB_HEAD_REF, Game Location: $GAME_DIR
       - name: Compile Game
         run: |
           cd $GITHUB_WORKSPACE/$GAME_DIR
@@ -49,3 +52,6 @@ jobs:
         uses: andymckay/labeler@master
         with:
           add-labels: "bug"
+
+
+echo -n ${GAME_DIR//[!\/]} | wc -c
