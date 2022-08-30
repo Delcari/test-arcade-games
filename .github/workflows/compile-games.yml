@@ -25,7 +25,6 @@ jobs:
       - name: Install dependencies, compile splashkit
         run: |
           echo test
-    # skm linux install
       - name: Find added game
         run: |
           cd $GITHUB_WORKSPACE
