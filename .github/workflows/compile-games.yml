@@ -44,5 +44,4 @@ jobs:
           git commit -m "Compile(Linux): ${basename $GAME_DIR}"
           git push origin HEAD:${GITHUB_HEAD_REF}
           echo done
-        #get basename from path
           $GAME_DIR=$(basename $GAME_DIR)
