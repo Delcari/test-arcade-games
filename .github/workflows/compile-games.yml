@@ -25,6 +25,7 @@ jobs:
       - name: Install dependencies, compile splashkit
         run: |
           echo test
+    # skm linux install
       - name: Find added game
         run: |
           cd $GITHUB_WORKSPACE
@@ -32,7 +33,7 @@ jobs:
           GAME_DIR=(`echo ${GAME_DIR}`)
           echo "GAME_DIR=$GAME_DIR" >> $GITHUB_ENV
           for game in "${GAME_DIR[@]}"
-            echo Branch: $GITHUB_HEAD_REF, Game Location: $GAME_DIR
+            echo Branch: $GITHUB_HEAD_REF, Game Location: $game
       - name: Compile Game
         run: |
           cd $GITHUB_WORKSPACE/$GAME_DIR
@@ -53,4 +54,4 @@ jobs:
           add-labels: "bug"
 
 
-echo -n ${GAME_DIR//[!\/]} | wc -c
+# echo -n ${GAME_DIR//[!\/]} | wc -c
