@@ -34,14 +34,14 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/$GAME_DIR
           echo Compiling game...
-          skm clang++ program.cpp -o testingit
+          skm clang++ program.cpp -o testingitagain
       - name: Update Repo
         run: |
           cd $GITHUB_WORKSPACE
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add $GAME_DIR
-          git commit -m "Compile(Linux): ${GAME_DIR##*/}"
+          git commit -m "Compile(Linux): '${GAME_DIR##*/}'"
           git push origin HEAD:${GITHUB_HEAD_REF}
           echo done
 
