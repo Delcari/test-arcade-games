@@ -11,7 +11,7 @@ on:
 
 jobs:
   Compile-Game-Linux:
-    if: ${{ github.event.label.name == 'bug' }}
+    if: "!contains( github.event.pull_request.labels.*.name, 'bug')"
     runs-on: ubuntu-latest
     env:
       GAME_DIR: 
