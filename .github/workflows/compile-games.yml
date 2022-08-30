@@ -48,3 +48,7 @@ jobs:
           git commit -m "Compile(Linux): $GAME_DIR"
           git push origin HEAD:${GITHUB_HEAD_REF}
           echo done
+      - name: Label PR
+        uses: andymckay/labeler@master
+        with:
+          add-labels: "bug"
