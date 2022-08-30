@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-  Compile-Game(Linux):
+  Compile-Game-Linux:
     runs-on: ubuntu-latest
     env:
       GAME_DIR: 
@@ -18,7 +18,6 @@ jobs:
       - name: Install SplashKit
         run: | 
           bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
-      # after install splashkit step check if it is installed
       - name: Add splashkit to path
         run: echo "$HOME/.splashkit" >> $GITHUB_PATH
       - name: Install dependencies, compile splashkit
