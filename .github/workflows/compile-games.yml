@@ -40,7 +40,7 @@ jobs:
               echo "Ignoring DIR: ${dir}"
             fi
           done
-          echo Branch: $GITHUB_HEAD_REF, Game Location: ${game[@]}
+          echo Branch: $GITHUB_HEAD_REF, Game Location: ${GAME_DIR[@]}
           echo "GAME_DIR=$GAME_DIR" >> $GITHUB_ENV
       - name: Compile Game
         run: |
