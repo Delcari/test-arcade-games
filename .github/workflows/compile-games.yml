@@ -24,8 +24,7 @@ jobs:
         run: echo "$HOME/.splashkit" >> $GITHUB_PATH
       - name: Install dependencies, compile splashkit
         run: |
-          echo test
-    # skm linux install
+          skm linux install
       - name: Find added game
         run: |
           cd $GITHUB_WORKSPACE
@@ -44,16 +43,22 @@ jobs:
           echo "GAME_DIR=$GAME_DIR" >> $GITHUB_ENV
       - name: Compile Game
         run: |
-          cd $GITHUB_WORKSPACE/$GAME_DIR
-          echo Compiling game...
-          skm clang++ program.cpp -o game
+          for dir in "${GAME_DIR[@]}"
+          do
+            cd $GITHUB_WORKSPACE/$dir
+            echo "Compiling Game: $dir"
+            skm clang++ program.cpp -o game
+          done
       - name: Update Repo
         run: |
           cd $GITHUB_WORKSPACE
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add $GAME_DIR
-          git commit -m "Compile(Linux): $GAME_DIR"
+          for dir in "${GAME_DIR[@]}"
+          do
+            git add $dir
+          done
+          git commit -m "Compile(Linux): $GAME_DIR[@]"
           git push origin HEAD:${GITHUB_HEAD_REF}
           echo done
       - name: Label PR
