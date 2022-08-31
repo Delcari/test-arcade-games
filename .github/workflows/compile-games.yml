@@ -34,7 +34,7 @@ jobs:
           GAME_DIR=()
           for dir in "${DIFF_DIRS[@]}"
           do
-            if [ $(echo -n ${game//[!\/]} | wc -c) = 2 ]; then
+            if [ $(echo -n ${dir//[!\/]} | wc -c) = 2 ]; then
               GAME_DIR+=(${dir})
             else 
               echo "Ignoring DIR: ${dir}"
