@@ -28,7 +28,7 @@ jobs:
       - name: Find added game
         run: |
           cd $GITHUB_WORKSPACE
-          DIFF_DIRS=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat=0 --diff-filter=AM games/ | sed 's/^[ 0-9.]\+% //g')
+          DIFF_DIRS=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat --diff-filter=AM games/ | sed 's/^[ 0-9.]\+% //g')
           DIFF_DIRS=(`echo ${DIFF_DIRS}`)
           GAME_DIR=()
           for dir in "${DIFF_DIRS[@]}"
