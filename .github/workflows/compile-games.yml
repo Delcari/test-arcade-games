@@ -61,8 +61,7 @@ jobs:
         run: echo "$HOME/.splashkit" >> $GITHUB_PATH
       - name: Install dependencies, compile splashkit
         run: |
-          echo installing skm
-        # skm linux install
+          skm linux install
 
       - name: Compile Game
         run: |
@@ -90,7 +89,6 @@ jobs:
             echo Compiling game $game_name...
             if [[ -z "$command" ]]; then
               echo "No compile command found, using default"
-              echo $command
               skm g++ program.cpp -o ${game_name}-linux-program.out
             else
               echo "Running compile command: $command"
