@@ -1,0 +1,67 @@
+name: Compile Games
+on: 
+  repository_dispatch:
+  pull_request: 
+      types: [ edited, labeled, unlabeled ] 
+      branches: [ master ] 
+
+
+jobs:
+  Compile-Game-Linux:
+    if: "!contains( github.event.pull_request.labels.*.name, 'bug')"
+    runs-on: ubuntu-latest
+    env:
+      GAME_DIR: 
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install SplashKit
+        run: | 
+          bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)
+      - name: Add splashkit to path
+        run: echo "$HOME/.splashkit" >> $GITHUB_PATH
+      - name: Install dependencies, compile splashkit
+        run: |
+          skm linux install
+      - name: Find added games
+        run: |
+          cd $GITHUB_WORKSPACE
+          DIFF_DIRS=$(git diff origin/master...origin/${GITHUB_HEAD_REF} --dirstat=0 --diff-filter=AM games/ | sed 's/^[ 0-9.]\+% //g')
+          DIFF_DIRS=(`echo ${DIFF_DIRS}`)
+          GAME_DIR=()
+          for dir in "${DIFF_DIRS[@]}"
+          do
+            if [ $(echo -n ${dir//[!\/]} | wc -c) = 2 ]; then
+              GAME_DIR+=(${dir})
+            else 
+              echo "Ignoring DIR: ${dir}"
+            fi
+          done
+          echo Branch: $GITHUB_HEAD_REF, Game Location: ${GAME_DIR[@]}
+          echo "GAME_DIR=${GAME_DIR[@]}" >> $GITHUB_ENV
+      - name: Compile Games
+        run: |
+          for dir in ${GAME_DIR[@]}
+          do
+            cd $GITHUB_WORKSPACE/$dir
+            echo "Compiling Game: $dir"
+            skm clang++ program.cpp -o game
+          done
+      - name: Update Repo
+        run: |
+          cd $GITHUB_WORKSPACE
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          for dir in ${GAME_DIR[@]}
+          do
+            git add $dir
+          done
+          git commit -m "Compile(Linux): $GAME_DIR"
+          git push origin HEAD:${GITHUB_HEAD_REF}
+          echo done
+      - name: Label PR
+        uses: andymckay/labeler@master
+        with:
+          add-labels: "bug"
