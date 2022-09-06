@@ -80,8 +80,8 @@ jobs:
               IFS='=' read -ra item <<< $line
               if [[ ${item[0]} == *"compile-command"* ]]; then
                 echo ${item[@]}
+                command="${item[1]}"
                 echo ${item[1]}
-                command=${item[1]}
                 break
               fi
             done < $file
