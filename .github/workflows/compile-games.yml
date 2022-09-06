@@ -103,7 +103,7 @@ jobs:
 
       - name: Compile Game
         run: |            
-              export PATH=$PATH:/c/Users/runneradmin/.splashkit   
+              export PATH=$PATH:/home/runneradmin/.splashkit   
               skm help
               echo ran skm help
               cd /home/runneradmin/.splashkit
