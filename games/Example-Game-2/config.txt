@@ -7,4 +7,4 @@ language=C++
 image=images/icon.png
 executable=N/A
 repository=N/A
-compile-command=pwd
+compile-command=skm g++ program.cpp -o ${game_name}-linux-program.out
