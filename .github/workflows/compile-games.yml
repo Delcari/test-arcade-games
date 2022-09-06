@@ -90,8 +90,8 @@ jobs:
             echo Compiling game $game_name...
             if [[ $command ]]; then
               echo "No compile command found, using default"
-              skm g++ program.cpp -o ${game_name}-linux-program.out
               echo $command
+              skm g++ program.cpp -o ${game_name}-linux-program.out
             else
               echo "Running compile command: $command"
               eval $command
