@@ -88,7 +88,7 @@ jobs:
 
             game_name=$(basename $dir)
             echo Compiling game $game_name...
-            if [[ $command ]]; then
+            if [[ -z "$command" ]]; then
               echo "No compile command found, using default"
               echo $command
               skm g++ program.cpp -o ${game_name}-linux-program.out
