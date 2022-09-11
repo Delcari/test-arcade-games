@@ -137,11 +137,12 @@ jobs:
             bash <(curl -s https://raw.githubusercontent.com/splashkit/skm/master/install-scripts/skm-install.sh)            
             export PATH=$PATH:$HOME/.splashkit
             for dir in ${GAME_DIR[@]}
-            do           
+            do   
+              cd $dir         
               pwd
               ls   
               pwd
-              cd ./../..
+              cd ../..
               pwd
             done                 
               
