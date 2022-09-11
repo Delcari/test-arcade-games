@@ -91,6 +91,13 @@ jobs:
               echo "No compile command found, using default"
               skm g++ program.cpp -o ${game_name}-linux-program.out
             else
+              if [[ $command == "skm"* ]]; then
+                echo splashkit command
+                command+="-o ${game_name}-linux-program.out"
+              else
+                echo make command
+                command+="${game_name}-linux-program.out"
+              fi
               echo "Running compile command: $command"
               eval $command
             fi
