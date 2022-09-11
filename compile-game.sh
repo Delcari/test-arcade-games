@@ -31,5 +31,4 @@ else
 	fi
 	echo "Running compile command: $command"
 	eval $command
-fi
-done  
+fi  
