@@ -68,7 +68,7 @@ jobs:
           read GAME_DIR <<< "${{ needs.get-game-directory.outputs.game-directory }}"
           for dir in ${GAME_DIR[@]}
           do                               
-            ./compile-game.sh $dir linux-program.out
+            ./compile-game.sh $GITHUB_WORKSPACE/$dir linux-program.out
           done  
 
       - uses: actions/upload-artifact@v3
@@ -104,7 +104,7 @@ jobs:
               read GAME_DIR <<< "${{ needs.get-game-directory.outputs.game-directory }}"
               for dir in ${GAME_DIR[@]}
               do                               
-                ./compile-game.sh $dir windows-program.exe
+                ./compile-game.sh $GITHUB_WORKSPACE/$dir windows-program.exe
               done                 
               
 
@@ -141,6 +141,7 @@ jobs:
             for dir in ${GAME_DIR[@]}
             do                               
               ./compile-game.sh $dir arm-program.out
+              cd ./../..
             done                 
               
                     

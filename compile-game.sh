@@ -1,7 +1,7 @@
 GAME_DIR=$1
 BINARY_SUFFIX=$2             
 
-cd $GITHUB_WORKSPACE/$GAME_DIR
+cd $GAME_DIR
 
 file=config.txt
 sed -i "s/\r//g" "${file}"
