@@ -77,10 +77,8 @@ jobs:
                 continue
               fi
               IFS='=' read -ra item <<< $line
-              if [[ ${item[0]} == *"compile-command"* ]]; then
-                echo ${item[@]}
+              if [[ ${item[0]} == "compile-command" ]]; then
                 command="${item[1]}"
-                echo ${item[1]}
                 break
               fi
             done < $file
@@ -92,10 +90,10 @@ jobs:
               skm g++ program.cpp -o ${game_name}-linux-program.out
             else
               if [[ $command == "skm"* ]]; then
-                echo splashkit command
+                echo Appending output flag and name/loc 
                 command+=" -o ${game_name}-linux-program.out"
               else
-                echo make command
+                echo Assuming usage of makefile, appending output name/loc 
                 command+=" ${game_name}-linux-program.out"
               fi
               echo "Running compile command: $command"
