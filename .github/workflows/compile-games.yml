@@ -93,10 +93,10 @@ jobs:
             else
               if [[ $command == "skm"* ]]; then
                 echo splashkit command
-                command+="-o ${game_name}-linux-program.out"
+                command+=" -o ${game_name}-linux-program.out"
               else
                 echo make command
-                command+="${game_name}-linux-program.out"
+                command+=" ${game_name}-linux-program.out"
               fi
               echo "Running compile command: $command"
               eval $command
