@@ -31,7 +31,7 @@ while read line || [ -n "$line" ]; do
 	IFS='=' read -ra array <<< $line
 	# Checking if key is in propertyDictionary
 	if [[ -v propertyDict[${array[0]}] ]]; then
-		# If key is in propertyDictionary, then increment value
+			# Split string with delimiter "="
 		propertyDict[${array[0]}]=$((++propertyDict[${array[0]}]))
 	else
 		errorList+=("Key: Invalid, ${array[0]}")
