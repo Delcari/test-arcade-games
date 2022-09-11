@@ -68,7 +68,7 @@ jobs:
           read GAME_DIR <<< "${{ needs.get-game-directory.outputs.game-directory }}"
           for dir in ${GAME_DIR[@]}
           do                               
-            ./$GITHUB_WORKSPACE/.github/workflows/compile-game.sh $dir linux-program.out
+            ./$GITHUB_WORKSPACE/compile-game.sh $dir linux-program.out
           done  
 
       - uses: actions/upload-artifact@v3
