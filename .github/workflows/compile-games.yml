@@ -141,9 +141,6 @@ jobs:
             for dir in ${GAME_DIR[@]}
             do           
               ./compile-game.sh $dir arm-program.out
-              pwd
-              cd ../..
-              pwd
             done                 
               
                     
